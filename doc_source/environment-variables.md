@@ -85,7 +85,7 @@ The SDK recognizes the following environment variables related to EC2 Instance M
 **AWS\_EC2\_METADATA\_DISABLED**  
 Disables IMDS\.  
 Profile key: none  
-If set, the IMDS credential and region provider are not used as part of the default credentials chain\.
+If set to `true` (case insensitive), the IMDS credential and region provider are not used as part of the default credentials chain\.
 
 **AWS\_EC2\_METADATA\_SERVICE\_ENDPOINT**  
 Overrides the endpoint used for IMDS\.  
