@@ -14,8 +14,12 @@ You can also supply a region an argument to the client object\. Most of the [SDK
 
 ```
 use aws_config::meta::region::RegionProviderChain;
-    
+// create a client that uses the default provider or `us-east-1` if no region is set.    
 let region_provider = RegionProviderChain::default_provider().or_else("us-east-1");
+
+// override the default region provider when loading shared configuration
 let config = aws_config::from_env().region(region_provider).load().await;
+
+// construct a service client (eg. DynamoDB)
 let client = Client::new(&config);
 ```
