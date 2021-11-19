@@ -49,16 +49,17 @@ max_attempts=ATTEMPTS
 ```
 
 To override the retry configuration for a service client, specify the retry configuration when you create the service client, as shown in the following code example, where *tries* is a value greater than zero\.
-
+// TODO: these examples should have `use` statements so they are clearer and can be copied / pasted.
+// TODO: where does `tries` come from? we should declare that variable
 ```
     let shared_config = aws_config::from_env().region(region_provider).load().await;
-
+    let 
     // Construct an S3 client with customized retry configuration.
     let client = Client::from_conf(
         // Start with the shared environment configuration.
         config::Builder::from(&shared_config)
             // Set max attempts.
-            // If my_tries is 1, there are no retries.
+            // If tries is 1, there are no retries.
             .retry_config(RetryConfig::new().with_max_attempts(tries))
             .build(),
     );
